@@ -1,0 +1,20 @@
+#!/bin/env bash
+
+if [[ -t 1 ]]
+then
+    if (( `tput colors` != 0 ))
+    then
+        WARNING="\033[60G[ \033[33mWARNING\033[0;0m ]"
+    else
+        WARNING="\033[60G[ WARNING ]"
+    fi
+else
+    WARNING=" [ WARNING ]"
+fi
+
+if [[ $# != 0 ]]
+then
+   WARNING="$WARNING $*"
+fi
+
+echo -e "$WARNING"

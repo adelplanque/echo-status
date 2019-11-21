@@ -1,0 +1,12 @@
+#!/bin/env bash
+
+if [[ -t 1 ]]
+then
+    if (( `tput colors` != 0 ))
+    then
+        RUNNING="\033[60G[ \033[33mRUNNING\033[0;0m ]"
+    else
+        RUNNING="\033[60G[ RUNNING ]"
+    fi
+    echo -ne "$RUNNING"
+fi

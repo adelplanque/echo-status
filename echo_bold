@@ -1,0 +1,9 @@
+#!/bin/env bash
+
+if [[ -t 1 ]]
+then
+    TXT="\033[1m$*\033[0m"
+else
+    TXT="$*"
+fi
+echo -e "$TXT"

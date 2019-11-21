@@ -1,0 +1,21 @@
+#!/bin/env bash
+
+if [[ -t 1 ]]
+then
+    echo -en "\033[60G                "
+    if (( `tput colors` != 0 ))
+    then
+        OK="\033[60G[ \033[32mOK\033[0;0m ]"
+    else
+        OK="\033[60G[ OK ]"
+    fi
+else
+    OK=" [ OK ]"
+fi
+
+if [[ $# != 0 ]]
+then
+   OK="$OK $*"
+fi
+
+echo -e "$OK"

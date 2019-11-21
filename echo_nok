@@ -1,0 +1,21 @@
+#!/bin/env bash
+
+if [[ -t 1 ]]
+then
+    echo -en "\033[60G                "
+    if (( `tput colors` != 0 ))
+    then
+        NOK="\033[60G[ \033[31mERROR\033[0;0m ]"
+    else
+        NOK="\033[60G[ ERROR ]"
+    fi
+else
+    NOK=" [ ERROR ]"
+fi
+
+if [[ $# != 0 ]]
+then
+   NOK="$NOK $*"
+fi
+
+echo -e "$NOK"
